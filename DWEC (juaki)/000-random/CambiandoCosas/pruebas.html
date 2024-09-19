@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="./getElement.js"></script>
+    <title>Cambiando img</title>
+  </head>
+  <body>
+    <p id="p1">BARÇA</p>
+    <img
+      src="./83.png"
+      id="imagen"
+      width="200"
+      height="200"
+      onclick="cambiarImg()"
+    />
+    <p id="p2" onclick="cambiarCSS_P2()">Haz clic en la foto</p>
+
+    <script>
+      function cambiarImg() {
+        var imagen = document.getElementById("imagen");
+        var texto = document.getElementById("p1");
+        if (imagen.src.match("83")) {
+          imagen.src = "./93.png";
+          texto.innerHTML = "TONTO EL QUE LO LEA";
+        } else {
+          imagen.src = "./83.png";
+          texto.innerHTML = "BARÇA";
+        }
+      }
+      function cambiarCSS_P2() {
+        var parrafo = document.getElementById("p2");
+        if (parrafo.style.color.match("red")) {
+          parrafo.style.fontSize = "20px";
+          parrafo.style.color = "black";
+        } else {
+          parrafo.style.fontSize = "50px";
+          parrafo.style.color = "red";
+        }
+      }
+      //LA FUNCION EDAD NO ES LLAMADA PARA NO MOLESTAR
+      function edad(params) {
+        let edad = prompt("Que edad tienes?", 20);
+        if (edad < 18) {
+          alert(`Eres menor de edad, tienes ${edad}`);
+        } else {
+          alert(`Eres mayor de edad, tienes ${edad}`);
+        }
+      }
+      terminamos();
+      function terminamos() {
+        document.write("<h1>Terminamos el tema</h1>");
+      }
+    </script>
+  </body>
+</html>
