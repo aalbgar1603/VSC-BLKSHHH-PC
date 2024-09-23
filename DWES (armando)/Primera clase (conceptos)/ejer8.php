@@ -7,5 +7,4 @@ $arr["dom"]="domingo";
 unset($arr[0]);
 
 print_r($arr);
-/* Si aparece el indice, porque PHP  indexa automaticamente */
 ?>
