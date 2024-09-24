@@ -1,0 +1,8 @@
+/**
+ * Antonio Miguel Alba Garcia
+ */
+La primera linea que tenemos que modificar es la de error_reporting añadiendo "~E_NOTICE"
+con lo que conseguimos que excluya el error de la lista.
+
+la segunda linea sería display_errors cambiandolo a Off. Esto hará que los errores no se muestren
+en la salida del script. Pero podemos activar otra opcion para redirigir estos errores a un archivo log.

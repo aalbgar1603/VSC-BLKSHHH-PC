@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Antonio Miguel Alba Garcia
+ */
   $nombre="Antonio*Alba*Garcia";
 
   $separados = explode("*", $nombre);
