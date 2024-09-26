@@ -15,5 +15,4 @@ function potencia($num, $pot = 2) {
 }
 
 echo potencia(2);
-
 ?>

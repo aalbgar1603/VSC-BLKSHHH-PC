@@ -6,6 +6,6 @@
   $apell1="Alba";
   $apell2="Garcia";
 
-  echo $nombre, " ", $apell1, " ", $apell2
+  echo $nombre, " ", $apell1, " ", $apell2;
 
 ?>
