@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Antonio Miguel Alba Garcia
+ */
   class Animal {
 
     //Atributos

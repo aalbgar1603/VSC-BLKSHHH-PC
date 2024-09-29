@@ -1,11 +1,14 @@
 <?php
-
+/**
+ * Antonio Miguel Alba Garcia
+ */
   class Coche {
     //Atributos
     private $marca;
     private $modelo;
     private $color;
     private $velocidad;
+    private $encendido;    // Actividad 2
 
     //Constructor
     public function __construct($marca, $modelo, $color, $velocidad) {
@@ -13,7 +16,20 @@
       $this->modelo = $modelo;
       $this->color = $color;
       $this->velocidad = $velocidad;
+      $this->encendido = false;
     }
+
+    // Actividad 2
+    public function encender() {
+      $this->encendido=true;
+      return "El vehiculo ".$this->marca." ".$this->modelo." se encuentra en marcha\n";      
+    }
+
+    public function apagar() {
+      $this->encendido=false;
+      return "El vehiculo ".$this->marca." ".$this->modelo." se encuentra en apagado\n";      
+    }
+
     //getters and setters
     public function getMarca() {
       return $this->marca;
@@ -43,19 +59,6 @@
 
   $coche=new Coche("volvo",  "v40", "azul", 2100);
 
-  echo $coche->__toString()."\n";
-
-  echo $coche->getMarca()."\n";
-  echo $coche->getModelo()."\n"; 
-  echo $coche->getColor()."\n";
-  echo $coche->getVelocidad()."\n";
-
-  echo "----------------------\n";
-
-  $coche->setMarca("");
-
-  echo $coche->getMarca()."\n";
-  echo $coche->getModelo()."\n"; 
-  echo $coche->getColor()."\n";
-  echo $coche->getVelocidad()."\n";
+  echo $coche-> encender();
+  echo $coche-> apagar();
 ?>
