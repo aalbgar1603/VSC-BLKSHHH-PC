@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="./js.js" defer></script>
+  </head>
+  <body>
+    <input type="text" id="peso" />
+    <input type="text" id="altura" />
+    <input type="button" id="calcular" value="Calcular IMC" />
+    <p id="icm"></p>
+    <script>
+      var boton = document.getElementById("calcular");
+      boton.addEventListener("click", calculo, false);
+      //console.log()
+      function calculo() {
+        var peso = parseInt(document.getElementById("peso").value);
+        var altura = parseInt(document.getElementById("altura").value);
+
+        var resultado = peso / (altura ** 2);
+        document.getElementById("icm").innerHTML = resultado.toFixed(2);
+      }
+    </script>
+    <input type="text" id="radio" placeholder="radio">
+    <input type="button" id="calcular2" value="Calcula el Area y Longitud">
+    <p id="longitud"></p>
+    <p id="area"></p>
+    
+  </body>
+</html>
