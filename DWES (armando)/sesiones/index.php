@@ -6,26 +6,33 @@
         $datos = array();
         $datos["user"] = "admin";
         $datos["rol"] = 1;
+        print_r($datos);
+        
         return $datos;
       } else if ("usuario" == $user  && "12345" == $pass){
         $datos = array();
         $datos["user"] = "usuario";
         $datos["rol"] = 0;
+        echo "hola u";
+        print_r($datos);
         return $datos;
       } else {
+        echo "no";
+        print_r("no ha entrado");
         return false;
       }
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $salida = comprobar($_POST["user"],  $_POST["pass"]);
-      if ($salida = false) {
+      if ($salida == false) {
         $error = true;
         $usuario =  $_POST["user"];
       }  else {
         session_start();
         $_SESSION['Usuario'] = $_POST["user"];
-        header("Location: index.php");
+
+        header("Location: sesiones.php");
       }
     }
   ?>
