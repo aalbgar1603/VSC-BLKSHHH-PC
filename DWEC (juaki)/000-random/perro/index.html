@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perros</title>
+</head>
+<body>
+  <h1>Usuario</h1>
+  <input type="text" id="usuario" placeholder="blkshhh">
+  <h1>Password</h1>
+  <input type="text" id="clave" placeholder="#imprenta25">
+  <br><br>
+  <input type="button" id="boton" value="Cargar la  BD">
+  <script>
+    class Persona {
+      constructor(nombre,clave) {
+        this.nombre=nombre;
+        this.clave=clave;
+      }
+    }
+    var boton = document.getElementById('boton');
+    boton.addEventListener("click",rellenar,false);
+
+    var baseD=[];
+
+    function rellenar() {
+      var getNombre = document.getElementById('usuario');
+      var getPass = document.getElementById('clave');
+      var persona = new Persona(getNombre,getPass);
+      console.log(persona);
+      
+    }
+  </script>
+  <script>
+    /*
+    var perro={
+      nombre: "Julian",
+      peso: 2.4,
+      color: "negro",
+      raza:  "elefante",
+      proculero: true,
+      edad: 200
+    };
+    console.log(perro,  perro.peso);
+    console.log(perro["edad"]);
+    perro.edad=500;
+    console.log(perro.edad);
+    let años  = perro.edad;
+    console.log(años);
+    let variable="edad";
+    perro[variable]=50;
+    console.log(perro.edad);
+    console.log("-------------------")
+    var automovil = {
+      marca:"Volvo",
+      modelo: "V40",
+      cc: 1800,
+      color: "azul"
+    }
+    let modelo = "modelo";
+    automovil[modelo]="V40 - T4";
+    console.log(automovil.modelo);
+    console.log(automovil[modelo]);
+    var autos_blk = {
+      nombre: "BLKSHHH",
+      actividad: "Venta-Reparacion",
+      direccion: {
+        calle: "Las 3 Mil",
+        numero: 3,
+        cp: 666,
+        ciudad: "Tegucigalpa",
+        estado: "Nuevo Mexico"
+      },
+      anioCreacion: "1925"
+    }
+    console.log(autos_blk["direccion"]);
+    autos_blk.actividad="Venta de drogas";
+    console.log(autos_blk.actividad);
+    console.error("-------------");
+    let empresa = {
+      nombre: "cualquiera",
+      actividades: "algo hace",
+      direcciones: {
+        calle : "en algun lao",
+        cp: 123123,
+        city: "bbt"
+      },
+      sexo: "si"
+    }
+    */
+  </script>
+</body>
+</html>
