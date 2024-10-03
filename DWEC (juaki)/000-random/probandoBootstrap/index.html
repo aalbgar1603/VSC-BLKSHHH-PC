@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bootstrap</title>
+  <style>
+    table  {
+      border-collapse: collapse;
+    }
+    td {
+      border: 1px  solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Introduzca  los  datos</h1>
+  <label for="nombre">Nombre: </label>
+  <br>
+  <input type="text" name="clave" id="nombre">
+  <br>
+  <br>
+  <label for="clave">Clave: </label>
+  <br>
+  <input type="text"  name="clave" id="clave">
+  <br><br>
+  <input type="button" id="boton" onclick="capturar()" value="Agregar usuario">
+  <table id="tabla" >
+
+  </table>
+  <script>
+    function capturar() {
+      
+      var getNombre = document.getElementById("nombre").value;
+      var getClave = document.getElementById("clave").value;
+  
+      function Persona(Nombre, Clave) {
+        this.Nombre = Nombre;
+        this.Clave = Clave;
+      }
+  
+      usuario1  = new Persona(getNombre,getClave);
+      console.log(usuario1);
+      agregar();
+    }
+    var datos=[];
+    function agregar() {
+      datos.push(usuario1);
+      document.getElementById("tabla").innerHTML +=  "<tr><td>"+usuario1.Nombre+"</td><td>"+usuario1.Clave+"</td></tr>"
+    };
+
+    class Mascota {
+
+      constructor (nombre, tipo, voz) {
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.voz = voz;
+      };
+      grupo = "animales";
+      saludar()  {
+        console.log(this.voz + " y soy un " + this.tipo);
+      };
+    }
+    miPerro = new Mascota("Trump", "Politico", "Grita");
+    console.log(miPerro);
+
+    class Rectangulo {
+      constructor(x,y) {
+        this.alto=x;
+        this.ancho=y;
+      }
+      info(){return "Alto: " + this.alto + "\nAncho:  " + this.ancho}
+      area(){return this.alto*this.ancho}
+    }
+    
+  </script>
+
+</body>
+</html>
