@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adivina el Número</title>
+  </head>
+  <body>
+    <center>
+      <h1>Adivinar Numero</h1>
+      <p id?="">Adivina el numero (1-10) en 5 intentos</p>
+      <p>Intentos realizados: <span id="intentos">0</span></p>
+      <input
+        id="numero"
+        type="text"
+        name="numero"
+        minlength="1"
+        maxlength="2"
+        size="2"
+      /><br />
+      <button id="btnAdivinar">Adivinar</button>
+      <button id="btnReiniciar">Reiniciar</button>
+      <div id="mensaje"></div>
+    </center>
+    <script>
+      var numintentos = 0;
+      var intentos = document.getElementById("intentos");
+      var numeroTeclado = document.getElementById("numero");
+      var btnAdivinar = document.getElementById("btnAdivinar");
+      var btnReiniciar = document.getElementById("btnReiniciar");
+      var mensaje = document.getElementById("mensaje");
+      var numeroSecreto = 0;
+      var minimo = 0;
+      var maximo = 10;
+      function iniciar() {
+        numintentos = 0;
+        intentos.textContent = numintentos;
+        btnAdivinar.disabled = false;
+        numeroTeclado.disabled = false;
+        numeroTeclado.value = "";
+        mensaje.textContent = "";
+        numeroSecreto = Math.round(Math.random() * (maximo - minimo) + minimo);
+        console.log(numeroSecreto, numintentos, numeroTeclado);
+      }
+
+      function adivinar() {
+        numintentos++;
+        if (
+          //Comprobamos si es numero y si está entre 0 y 10
+          isNaN(numeroTeclado.value) ||
+          numeroTeclado > 10 ||
+          numeroTeclado < 0
+        ) {
+          //Lanzamos un alert si no se cumple lo anterior
+          alert("Teclea un numero valido entre 1 y 10");
+          numintentos--;
+          numeroTeclado.value = "";
+        } else {
+          //si es valido comprobará el numero de intentos es menor que 5 y que no haya acertado
+          if (numintentos < 5 && numeroTeclado.value != numeroSecreto) {
+            if (numeroTeclado.value < numeroSecreto) {
+              mensaje.textContent = "Es mas grande";
+            } else {
+              mensaje.textContent = "Es mas pequeño";
+            }
+          } else if (numeroTeclado.value == numeroSecreto) {
+            mensaje.textContent = "Adivinado";
+            terminar();
+          } else if (numintentos >= 5) {
+            mensaje.textContent = "Se han alcanzado los 5 intentos";
+            terminar();
+          }
+        }
+        intentos.textContent = numintentos;
+      }
+      function terminar() {
+        numeroTeclado.disabled = true;
+        btnAdivinar.disabled = true;
+      }
+      btnReiniciar.addEventListener("click", iniciar, false);
+      btnAdivinar.addEventListener("click", adivinar, false);
+    </script>
+  </body>
+</html>
