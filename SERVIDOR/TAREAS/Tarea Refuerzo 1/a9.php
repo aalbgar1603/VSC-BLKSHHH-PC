@@ -48,7 +48,7 @@ class Mediterranea extends Fruta
 {
   private $textura;
 
-  public function __construct()
+  public function __construct($nombre, $sabor, $color)
   {
     parent::__construct($nombre, $sabor, $color);
   }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="salida"></p>
+    <script>
+      window.onload = function () {
+        setInterval(tiempoParaNavidad, 1);
+      };
+      function tiempoParaNavidad() {
+        var ahora = new Date();
+        var anioActual = ahora.getFullYear();
+        var finAnio = new Date(anioActual, 11, 31, 23, 59, 59);
+        let diferencia = finAnio.getTime() - ahora.getTime();
+        document.getElementById("salida").innerHTML = diferencia;
+      }
+    </script>
+  </body>
+</html>
