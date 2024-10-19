@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="salida"></p>
+    <script>
+      let fecha = new Date();
+      console.log(fecha);
+      let fecha2 = new Date("2025/10/30 23:35:15");
+      console.log(fecha2);
+      const fecha3 = new Date("2025/10/30 23:35:15");
+      console.log(fecha3);
+      /*
+      const fecha4 = Date.now();
+      console.log(fecha4);
+      console.log(fecha4.getDay());
+      console.log(fecha4.getDate());
+      */
+      console.log(fecha.getMonth());
+      console.log(fecha.getFullYear());
+      console.log(fecha.getHours());
+      console.log(fecha.getMinutes());
+      console.log(fecha.getSeconds());
+      console.log(fecha.getMilliseconds());
+      console.log(fecha.getTime());
+      //Formato UTC: año, mes, dia, hora, minuto, segundo, milisegundos
+      let fecha_utc = new Date(2024, 9, 30, 15, 20, 21, 56);
+      console.log(fecha_utc.getFullYear);
+      const minutos = 1000 * 60;
+      let horas = minutos * 60;
+      let dias = horas * 24;
+      var año = dias * 365;
+      let fechaActual = Math.round(Date.now() / año);
+      console.log(fechaActual);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="reloj()">
+    <p id="reloj1">Hora Actual</p>
+    <div id="reloj_actual"></div>
+    <p id="reloj2">Queda para navidad</p>
+    <div id="reloj_navidad"></div>
+    <script>
+      function reloj() {
+        actual = new Date();
+        horas = actual.getHours();
+        minutos = actual.getMinutes();
+        segundos = actual.getSeconds();
+
+        let anioActual = actual.getFullYear();
+        var navidad = new Date(anioActual, 11, 24, 23, 0,0)
+        let diferencia = navidad-actual;
+        segundosTotales = Math.floor(diferencia/1000);
+        minutosTotales = Math.floor(segundosTotales/60);
+        horasTotales = Math.floor(minutosTotales/60);
+        diasTotales = Math.floor(horasTotales/24);
+        
+
+        if (segundos < 10) {
+          segundos = "0" + segundos;
+        }
+        minutos = minutos < 10 ? "0" + minutos : minutos;
+        horas = (horas < 10) ? ("0" + horas) : horas;
+        let hora_actual = "";
+        hora_actual = horas + ":" + minutos + ":" + segundos;
+        let reloj_actual = document.getElementById("reloj_actual");
+        reloj_actual.innerHTML = hora_actual;
+        setTimeout("reloj()", 1);
+      }
+    </script>
+  </body>
+</html>

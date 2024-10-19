@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <label for="titulo">Titulo</label>
+    <input type="text" name="titulo" id="titulo">
+    <br><br>
+
+    <label for="dia">Dias</label>
+    <input type="number" name="dia" id="dias" onchange="coste.value=dias.value*2+'€'">
+    <p>Precio: <output name="coste" for="dias"></output></p>
+    <p>Observaciones</p>
+    <textarea name="observaciones" cols="40" rows="4" id="observaciones"></textarea>
+    <br><br>
+
+    <label for="ebooks">Elige la marca de tu Ebook:</label>
+    <input list="ebooks" name="ebooks">
+    <datalist id="ebooks">
+      <option value="xiaomi">Xiaomi</option>
+      <option value="kobo">Kobo</option>
+      <option value="bq">BQ</option>
+    </datalist>
+    <button>Enviar</button>
+    <p>Datos del Cliente</p>
+    <p>Precio del alquiler 2€/dia</p>
+    <label for="dia2">Dias</label>
+    <input type="number" name="dia2" onchange="coste2.value=dia2.value*2+'€'">
+    <p>Total: <output name="coste2" ></output></p>
+    <fieldset>
+      <legend>Datos del clientes</legend>
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" id="nombre">
+      <br><br>
+      <label for="apellidos">Apellido</label>
+      <input type="text" name="apellidos" id="apellidos">
+    </fieldset>
+    <button>Enviar</button>
+
+  </form>
+</body>
+</html>

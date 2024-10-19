@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="date" id="fecha">
+  <button onclick="comprobar()">Comprobar</button>
+  <script>
+    function comprobar()  {
+      let fecha_form = document.getElementById("fecha");
+      console.log(fecha_form);
+      let milisegundos = fecha_form.valueAsNumber;
+      console.log(milisegundos);
+      let fecha_date = new Date(milisegundos);
+      var minutos = fecha_date.getMinutes();
+      var horas = fecha_date.getHours();
+      var mensaje = "";
+      if (horas >= 6 && horas < 12) {
+        mensaje = `Buenos dias. Son las ${horas}:${minutos}`;
+      } else if (horas >= 12 && horas < 21) {
+        mensaje =  `Buenos tardes. Son las ${horas}:${minutos}`;
+      }  else {
+        mensaje = `Buenos noches. Son las ${horas}:${minutos}`;
+      }
+      alert(mensaje);
+      console.log(mensaje);
+    }
+  </script>
+</body>
+</html>
