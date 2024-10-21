@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>Recorrido de un array</h3>
+  <p id="aqui"></p>
+  <script>
+    console.log("--------------1----------------");
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    //metodo 1 para recorrer array
+    for(let i = 0; i < meses.length; i++) {
+      console.log(meses[i]);
+    }
+
+    console.log("--------------2----------------");
+    
+    //metodo 2 para recorrer array
+    meses.forEach(function (valor, index, array) {
+      console.log(valor);
+    });
+
+    console.log("--------------3----------------");
+    
+    
+    //metodo 3 para recorrer array
+    for (const  indice in meses) {
+      console.log(indice, meses[indice]);
+      
+    }
+
+    console.log("--------------4----------------");
+    
+    //metodo 4 para recorrer array
+    for (let valor of meses) {
+      console.log(valor);
+      
+    }
+    console.log("------------filter-------------");
+    var numeros = [1,2,3,4,5,6,7,8,9,10];
+
+    let pares = numeros.filter((val) => val%2==0);
+    let impares = numeros.filter((val) => val%2==1);
+    console.log(pares);
+    for (let valor of impares) {
+      console.log(valor);
+    }
+    </script>
+</body>
+</html>

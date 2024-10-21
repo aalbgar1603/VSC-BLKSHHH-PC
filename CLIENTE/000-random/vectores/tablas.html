@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="foco" value="Blur (Quitame el foco)"> 
+  <div id="fuera">MouseOut</div>
+  <div id="sobre">MouseOver</div>
+  <script>
+    var sobre = document.getElementById("blur");
+    sobre.addEventListener("blur", function() {
+      sobre.innerHTML("te has ido")
+    })
+    var fuera = document.getElementById("blur");
+  </script>
+</body>
+</html>
