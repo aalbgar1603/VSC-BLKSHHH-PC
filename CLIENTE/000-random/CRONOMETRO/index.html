@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRONOMETRO</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #3B1E54;
+      background-image: url('./churumbel.jpg');
+      background-size: 100vh;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    div {
+      margin: 5px;
+      padding: 10px;
+    }
+    .divPadres {
+            border-radius: 5px;
+
+      background: #9B7EBD;
+    }
+    .main {
+            border-radius: 5px;
+
+      display: flex;
+      background: #D4BEE4;
+    }
+    .contadores {
+      border-radius: 5px;
+      background: #EEEEEE;
+    }
+
+    button {
+      background: #D4BEE4;
+      border: none;
+      padding: 8px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="divPadres">
+    <div class="main">
+      <div id="hh" class="contadores"></div>
+      <div id="mm" class="contadores"></div>
+      <div id="ss" class="contadores"></div>
+      <div id="ms" class="contadores"></div>
+    </div>
+
+  </div>
+  <div class="divPadres">
+    <form>
+      <button type="button" onclick="botonazo('iniciar')">&#9658 INICIAR</button>
+      <button type="button" onclick="botonazo('parar')">&#8718 PARAR</button>
+      <button type="button" onclick="botonazo('continuar')">&#8635 CONTINUAR</button>
+      <button type="button" onclick="botonazo('restart')">&#8634 RESTART</button>
+    </form>
+    
+    <script>
+      var hh = document.getElementById('hh');
+      var mm = document.getElementById('mm');
+      var ss = document.getElementById('ss');
+      var ms = document.getElementById('ms');
+
+      let horas = 0;
+      let minutos = 0;
+      let segundos = 0;
+      let milisegundos = 0;
+      
+      window.onload = function () {
+        hh.innerHTML = "00";
+        mm.innerHTML = "00";
+        ss.innerHTML = "00";
+        ms.innerHTML = "00";
+
+        document.body.style.backgroundImage = `url('primera.jpg')`;
+      }
+      function actualizarCronometro() {
+        milisegundos++;
+        if (milisegundos > 100) {
+          milisegundos = 0;
+          segundos++;
+          if (segundos === 60) {
+            segundos = 0;
+            minutos++;
+            if (minutos === 60) {
+              minutos = 0;
+              horas++;
+            }
+          }
+        }
+        if (segundos == 10) {
+          document.body.style.backgroundImage = `url('10.jpg')`;
+        } else if (segundos == 20){
+          document.body.style.backgroundImage = `url('20.jpg')`;
+        } else if (segundos == 30) {
+          document.body.style.backgroundImage = `url('30.jpg')`;
+        } else if (segundos == 40) {
+          document.body.style.backgroundImage = `url('40.jpg')`;
+        } else if (segundos == 50) {
+          document.body.style.backgroundImage = `url('50.jpg')`;
+        } else if (segundos == 0) {
+          document.body.style.backgroundImage = `url('primera.jpg')`;
+        }
+        hh.innerHTML = (horas <  10) ? "0" + horas : horas; 
+        mm.innerHTML = (minutos <  10) ? "0" + minutos : minutos; 
+        ss.innerHTML = (segundos <  10) ? "0" + segundos : segundos; 
+        ms.innerHTML = (milisegundos <  10) ? "0" + milisegundos : milisegundos; 
+      }
+
+      function iniciarCronometro() {
+        intervalo = setInterval(actualizarCronometro, 0.01);
+      }
+
+      function  pararCronometro()  {
+        clearInterval(intervalo);
+      }
+      function  continuarCronometro()  {
+        iniciarCronometro();
+      }
+      function  restartCronometro()  {
+        clearInterval(intervalo);
+        horas = 0;
+        minutos = 0;
+        segundos = 0;
+        milisegundos = 0;
+
+        hh.innerHTML = "00";
+        mm.innerHTML = "00";
+        ss.innerHTML = "00";
+        ms.innerHTML = "00";
+                document.body.style.backgroundImage = `url('primera.jpg')`;
+
+      }
+      
+      function botonazo(opc) {
+        switch (opc) {
+          case "iniciar":
+            iniciarCronometro();
+            break;
+          case "parar":
+            pararCronometro();
+            break;
+          case "continuar":
+            continuarCronometro();
+            break;
+          case "restart":
+            restartCronometro();
+            break;
+        
+          default:
+            break;
+        }
+      }
+    </script>
+  </div>
+  <br>
+</body>
+</html>

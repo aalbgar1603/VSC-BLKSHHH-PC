@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .azul {
+      color: blue;
+    }
+    .rojo {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <input type="number" name="numero" id="numero" placeholder="Escriba un numero...">
+  <br>
+  <input type="text" name="letra" id="letra" maxlength="1" placeholder="Escriba un caracter...">
+  <br>
+  <button onclick="mostrar()">Mostrar</button>
+  
+  <p id="normal" class="azul"></p>
+  <p>__________________________________________</p>
+  <p id="invertida" class="rojo"></p>
+  <script>
+    function mostrar() {
+      letra = document.getElementById("letra").value;
+      numero = document.getElementById("numero").value;
+      normal = document.getElementById("normal");
+      invertida = document.getElementById("invertida");
+      normal.innerHTML = "";
+      invertida.innerHTML = "";
+
+      //PIRAMIDE NORMAL
+      index = 0;
+      for (let i = numero; i > 0; i--) {
+        index++;
+        for ( let j = index; j > 0; j--) {
+          normal.innerHTML += letra;
+        }
+        normal.innerHTML += "<br>";
+      }
+      //PIRAMIDE INVERTIDA
+      invertida.innerHTML += "<br>";
+      index = numero;
+      index2 = 0;
+      for (let i = numero; i > 0; i--) {
+        index--;
+        index2++;
+        // PINTA ESPACIOS
+        for ( let j = index; j > 0; j--) {
+          invertida.innerHTML += "&nbsp&nbsp";
+        }
+        //PINTA LETRAS
+        for ( let j = index2; j > 0; j--) {
+          invertida.innerHTML += letra;
+        }
+        invertida.innerHTML += "<br>";
+      }
+    }
+  </script>
+</body>
+</html>
