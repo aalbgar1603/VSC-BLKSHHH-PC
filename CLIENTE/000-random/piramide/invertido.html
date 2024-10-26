@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="number" name="numero" id="numero">
+  <button onclick="mostrar()">Mostrar</button>
+  <p id="salida"></p>
+  <script>
+    function mostrar() {
+      salida.innerHTML = "";
+      numero = document.getElementById("numero").value;
+      salida = document.getElementById("salida");
+      index = numero;
+      index2 = 0;
+      for (let i = numero; i > 0; i--) {
+        index--;
+        index2++;
+        for ( let j = index; j > 0; j--) {
+          salida.innerHTML += "&nbsp&nbsp";
+        }
+        for ( let j = index2; j > 0; j--) {
+          salida.innerHTML += "x";
+        }
+        
+        salida.innerHTML += "<br>";
+      }
+    }
+  </script>
+</body>
+</html>

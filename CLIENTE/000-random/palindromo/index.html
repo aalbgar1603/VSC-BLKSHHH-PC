@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <input type="text" name="cadena" id="cadena" placeholder="Escriba un caracter...">
+  <br>
+  <button onclick="mostrar()">Comprobar</button>
+  
+  <p id="salida" class="azul"></p>
+  
+  <script>
+    function mostrar() {
+      cadena = document.getElementById("cadena").value;
+      salida = document.getElementById("salida");
+      salida.innerHTML = "";
+      var invertida = "";
+      for (let i = cadena.length-1; i >= 0; i--) {
+        if (cadena[i] != " ") {
+          invertida += cadena[i];
+        }
+      }
+      if (invertida == cadena ) {
+        salida.innerHTML += "ES PALINDROMO";
+      } else {
+        salida.innerHTML += "NO ES PALINDROMO";
+      }
+    }
+  </script>
+</body>
+</html>

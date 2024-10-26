@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>Recorrido de un array</h3>
+  <p id="aqui"></p>
+  <script>
+    var txt = "";
+    var txt2 = "";
+    var dias = ["lunes", "martes","miercoles","jueves","viernes","sabado","domingo"]
+    dias.forEach(valores);
+    function valores(valor, index, array) {
+      txt+=index +  valor + "<br>";
+    }
+    document.getElementById("aqui").innerHTML+=txt+"<br>----------<br>"
+
+    let laborables = new Array()
+    let dias_lab = ["lunes", "martes","miercoles","jueves","viernes"];
+    
+    dias_lab.forEach(function (valor, index, array) {
+      array[index]=valor.toUpperCase();
+      laborables.push(array[index].toLocaleLowerCase());
+    })
+    dias_lab.forEach(function (valor, index, array) {
+      console.log(array[index]);
+    })
+    laborables.forEach(function (valor, index, array) {
+      console.log(array[index]);
+    })
+  </script>
+</body>
+</html>
