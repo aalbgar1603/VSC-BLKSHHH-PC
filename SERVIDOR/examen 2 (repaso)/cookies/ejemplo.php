@@ -14,15 +14,15 @@ if (!isset($_COOKIE['visitas'])) { // Si no existe
     echo "Bienvenido por $visitas vez";
   }
 }
-if (!isset($_COOKIE['color'])) { //crea la cookie con el color blanco si no existe la cookie
-  setcookie('color', 'white', time() + 3600 * 24);
+
+if (isset($_POST['color'])) {
+  setcookie('color', $_POST["color"], time() + 3600 * 24);
+  header("Location: " . $_SERVER['PHP_SELF']); // Recarga la página
+  exit();
 } else {
-  if (!empty($_POST['color'])) {
-    setcookie('color', $_POST["color"], time() + 3600 * 24);
-    header("Location: " . $_SERVER['PHP_SELF']); // Recarga la página
-    exit();
-  }
+  setcookie('color', 'white', time() + 3600 * 24);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ if (!isset($_COOKIE['color'])) { //crea la cookie con el color blanco si no exis
   <title>Document</title>
   <style>
     body {
-      background: <?php echo (!isset($_COOKIE['color'])) ? 'white' : $_COOKIE['color'] ?>;
+      background: <?php echo $_COOKIE['color'] ?>;
     }
   </style>
 </head>
@@ -42,15 +42,15 @@ if (!isset($_COOKIE['color'])) { //crea la cookie con el color blanco si no exis
 <body>
   <form action="./ejemplo.php" method="post">
     <label>
-      <input type="radio" name="color" value="red">Red
+      <input type="radio" name="color" value="red" <?php if ($_COOKIE['color'] === 'red') echo 'checked'; ?>>Red
     </label>
     <br>
     <label>
-      <input type="radio" name="color" value="green">Greeen
+      <input type="radio" name="color" value="green" <?php if ($_COOKIE['color'] === 'green') echo 'checked'; ?>>Greeen
     </label>
     <br>
     <label>
-      <input type="radio" name="color" value="blue">Blue
+      <input type="radio" name="color" value="blue" <?php if ($_COOKIE['color'] === 'blue') echo 'checked'; ?>>Blue
     </label>
     <br>
     <input type="submit" value="Cambiar">
