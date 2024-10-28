@@ -1,23 +1,26 @@
 <?php
 
-$nombre = "antonio";
-$miguel = "alba";
-if (!isset($_POST["nombre"]) && !isset($_POST["pass"])) {
-  if (empty($_POST["nombre"]) || empty($_POST["pass"])) {
+$nombre = "a";
+$pass = "a";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (!isset($_POST["nombre"]) || !isset($_POST["pass"]) || empty($_POST["nombre"]) || empty($_POST["pass"])) {
     echo "Rellene todos los campos";
   } else {
-    if ($_POST["nombre"] != $nombre && $_POST["pass"] != $pass) {
+    if ($_POST["nombre"] != $nombre || $_POST["pass"] != $pass) {
       $error = true;
     } else {
+      echo "entro";
       $error = false;
     }
   }
-}
-if (isset($error)) {
-  if ($error) {
-    echo '<p style="color: red;">Los datos no son correctos</p>';
-  } else {
-    echo '<p style="color: green;">CORRECTO!!</p>';
+  if (isset($error)) {
+    echo "entro";
+    if ($error) {
+      echo "entro";
+      $salida = '<span style="color: red;">Los datos no son correctos</span>';
+    } else {
+      $salida = '<span style="color: green;">CORRECTO!!</span>';
+    }
   }
 }
 ?>
@@ -38,6 +41,7 @@ if (isset($error)) {
     <input type="text" name="pass">
     <input type="submit">
   </form>
+  <h1><?php echo (isset($salida)) ? $salida : "" ?></h1>
 </body>
 
 </html>
