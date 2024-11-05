@@ -15,8 +15,7 @@ function comprobarError($i)
   } else if ($i == 1) {
     throw new Exception("El fichero subido excede la directiva upload_max_filesize de php.ini.", 1);
   } else if ($i == 2) {
-    throw new Exception("El fichero subido excede la directiva MAX_FILE_SIZE especificada en el formulario
-HTML.", 1);
+    throw new Exception("El fichero subido excede la directiva MAX_FILE_SIZE especificada en el formulario HTML.", 1);
   } else if ($i == 3) {
     throw new Exception("El fichero fue sólo parcialmente subido.", 1);
   } else if ($i == 4) {

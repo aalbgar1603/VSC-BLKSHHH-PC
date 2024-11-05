@@ -11,7 +11,7 @@ function dividir($num1, $num2)
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if (!empty($_POST['num1']) && !empty($_POST['num2'])) {
+  if (!is_null($_POST['num1']) && !is_null($_POST['num2'])) {
     if (is_numeric($_POST['num1']) && is_numeric($_POST['num2'])) {
       try {
         echo dividir($_POST['num1'], $_POST['num2']);
