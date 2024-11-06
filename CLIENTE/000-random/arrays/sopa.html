@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+    .caja {
+      padding: 20px;
+      background-color: #007fff;
+      border: #00ffff solid  2px;
+      border-radius: 20px;
+      
+    }
+    .boton {
+      height: 30px;
+      width: 30px;
+      margin: 1px;
+      border: none;
+      border-radius: 8px;
+    }
+    .a, .A { background-color: #ff0000; } /* Rojo */
+    .b, .B { background-color: #ff7f00; } /* Naranja */
+    .c, .C { background-color: #ffff00; } /* Amarillo */
+    .d, .D { background-color: #7fff00; } /* Verde claro */
+    .e, .E { background-color: #00ff00; } /* Verde */
+    .f, .F { background-color: #00ff7f; } /* Verde agua */
+    .g, .G { background-color: #00ffff; } /* Cian */
+    .h, .H { background-color: #007fff; } /* Azul claro */
+    .i, .I { background-color: #0000ff; } /* Azul */
+    .j, .J { background-color: #7f00ff; } /* Púrpura */
+    .k, .K { background-color: #ff00ff; } /* Magenta */
+    .l, .L { background-color: #ff007f; } /* Rosa oscuro */
+    .m, .M { background-color: #ff4d4d; } /* Rojo claro */
+    .n, .N { background-color: #ffbf00; } /* Amarillo oscuro */
+    .o, .O { background-color: #bfff00; } /* Verde lima */
+    .p, .P { background-color: #4dff4d; } /* Verde menta */
+    .q, .Q { background-color: #00bfff; } /* Azul cielo */
+    .r, .R { background-color: #4d4dff; } /* Azul intenso */
+    .s, .S { background-color: #bf00ff; } /* Púrpura claro */
+    .t, .T { background-color: #ff4dbf; } /* Magenta claro */
+    .u, .U { background-color: #ffbfbf; } /* Rosa pálido */
+    .v, .V { background-color: #ffd4d4; } /* Rosa muy claro */
+    .w, .W { background-color: #ffd700; } /* Dorado */
+    .x, .X { background-color: #99ffcc; } /* Verde menta claro */
+    .y, .Y { background-color: #ccccff; } /* Azul lavanda */
+    .z, .Z { background-color: #ff99ff; } /* Rosa lavanda */
+
+  </style>
+</head>
+<body>
+  <div id="caja" class="caja">
+
+  </div>
+  <script>
+    var letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    var caja = document.getElementById("caja");
+    var contenido = "";
+    for (let i = 0; i <= 20; i++) {
+      for (let j = 0; j <= 20; j++) {
+        letra = letras[Math.floor(Math.random() * letras.length)];
+        contenido += "<input class='"+letra+" boton' type='button' id='"+i+"-"+j+"' onclick='' value='"+letra+"'></input>";
+      }
+      contenido += "<br>";
+    }
+    caja.innerHTML = contenido;
+  </script>
+</body>
+</html>
