@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Regresiva Año Nuevo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #countdown {
+            text-align: center;
+            font-size: 2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">Calculando...</div>
+
+    <script>
+        function actualizarCuentaRegresiva() {
+            // Fecha actual
+            const ahora = new Date();
+            // Fecha 01/01/2025
+            // Conseguimos el año actual y le sumamos 1. Ademas establecemos el mes y el dia en 1
+            // Usando el formato UTC
+            const proximoAnioNuevo = new Date(ahora.getFullYear() + 1, 0, 1);
+            // Calculamos la diferencia entre la fecha actual y año nuevo
+            const diferencia = proximoAnioNuevo - ahora;
+
+
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                `${dias} dias<br>${horas} horas<br>${minutos} minutos<br>${segundos} segundos`;
+
+            if (diferencia < 0) {
+                document.getElementById("countdown").innerHTML = "¡Feliz Año Nuevo!";
+            }
+        }
+
+        actualizarCuentaRegresiva();
+        setInterval(actualizarCuentaRegresiva, 1000);
+    </script>
+</body>
+</html>
