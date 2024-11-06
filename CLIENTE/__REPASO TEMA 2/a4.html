@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <input type="number" id="nota" placeholder="Nota...">
+    <button type="button" id="botonSumar">Comprobar</button>
+  </form>
+  <textarea id="resultado"></textarea>
+  <script>
+    document.getElementById("botonSumar").addEventListener("click", function() {
+      num = document.getElementById("nota").value;
+      if (num > 4) {
+        document.getElementById("resultado").value = "APROBADO";
+      } else {
+        document.getElementById("resultado").value = "SUSPENDIDO";
+      }
+    })
+  </script>
+</body>
+</html>
