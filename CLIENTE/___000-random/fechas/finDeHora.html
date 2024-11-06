@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Regresiva Fin de Hora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #countdown {
+            font-size: 2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">Calculando...</div>
+
+    <script>
+        function actualizarCuentaRegresiva() {
+            const ahora = new Date();
+            
+            // Establecemos la fecha y hora límite como el final de la hora actual
+            const proximoFinDeHora = new Date(ahora);
+            proximoFinDeHora.setMinutes(18, 0, 0); // Minuto 59, segundo 59, milisegundo 999
+            
+            const diferencia = proximoFinDeHora - ahora;
+
+            const minutos = Math.floor(diferencia / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                `${minutos}m ${segundos}s`;
+
+            // Cuando llegue a 0, mostramos un mensaje y reiniciamos la cuenta regresiva
+            if (diferencia < 0) {
+                document.getElementById("countdown").innerHTML = "¡Hora cumplida!";
+            }
+        }
+
+        actualizarCuentaRegresiva();
+        setInterval(actualizarCuentaRegresiva, 1000);
+    </script>
+</body>
+</html>

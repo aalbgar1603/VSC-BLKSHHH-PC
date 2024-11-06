@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <form>
+
+    <input type="number" name="precio" id="precio" placeholder="Precio...">
+    <button type="button" onclick="comprobarPrecio()">Enviar</button>
+  </form>
+  <h4 id="salida"></h4>
+  <script>
+    function comprobarPrecio() {
+      precio = document.getElementById("precio").value;
+      // El if es mejorable para que controle si es mayor o menor por separado
+      if (precio > 0 && precio < 10) {
+        document.getElementById("salida").innerHTML = "El numero es menor que 10 y mayor que 0."
+      } else {
+        document.getElementById("salida").innerHTML = "El numero NO es menor que 10 y mayor que 0."
+      }
+    }
+  </script>
+</body>
+</html>

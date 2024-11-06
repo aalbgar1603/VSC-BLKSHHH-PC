@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <input type="number" id="num">
+    <button type="button" id="but">Guardar</button>
+  </form>
+  <h3 id="salida"></h3>
+
+  <script>
+    var contador = 0;
+    var arrayNum = [];
+    document.getElementById("but").addEventListener("click", function() {
+      salida = document.getElementById("salida");
+      numero = document.getElementById("num").value;
+      if (numero >= 0 && numero <=9) {
+        contador++;
+        arrayNum.push(numero);
+      }
+      if (contador > 3) {
+        arrayNum.sort();
+        contador = 0;
+        salida.innerHTML = "";
+        arrayNum.forEach(element => {
+          salida.innerHTML += element + " ";
+        });
+      }
+    });
+  </script>
+</body>
+</html>
