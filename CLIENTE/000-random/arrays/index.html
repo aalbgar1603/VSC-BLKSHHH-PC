@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="frutas"></p>
+  <p id="coches"></p>
+  <script>
+    const frutas = ["banana","platano","kiwi"]
+
+    console.log(frutas);
+    console.log(frutas.length)
+
+    frutas.push("mango");
+    fruta=frutas[2];
+
+    console.log(frutas.length)
+
+    console.log(frutas.sort());
+    
+    let texto = "<ul>";
+    let tamaño = frutas.length;
+
+    for (let i = 0; i < tamaño; i++) {
+      texto += "<li>"+frutas[i]+"</li>";
+      
+    }
+    texto += "</ul>";
+    console.log(texto);
+    var nums = [2,- 3,6,1,7];
+    var min=Number.MAX_SAFE_INTEGER;
+    var max=Number.MIN_SAFE_INTEGER;
+    nums.forEach(element => {
+      if(element > max){
+        max = element;
+      }
+      if(element < min){
+        min = element;
+      }
+    });
+    console.log(min);
+    console.log(max);
+    
+  </script>
+</body>
+</html>
