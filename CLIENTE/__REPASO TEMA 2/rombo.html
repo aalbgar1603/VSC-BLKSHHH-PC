@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dibujar Rombo</title>
+</head>
+<body>
+    <h2>Dibuja un Rombo en la Consola</h2>
+    
+    <!-- Entrada para definir el número de líneas del rombo -->
+    <label for="lineas">Número de líneas:</label>
+    <input type="number" id="lineas" min="1" placeholder="Ejemplo: 5" />
+    
+    <!-- Botón para generar el rombo -->
+    <button onclick="dibujarRombo()">Dibujar Rombo</button>
+    
+    <script>
+        function dibujarRombo() {
+            // Obtener el número de líneas desde el input
+            const lineas = parseInt(document.getElementById("lineas").value);
+            
+            // Validar que el número de líneas sea positivo
+            if (isNaN(lineas) || lineas < 1) {
+                console.log("Por favor, ingresa un número positivo.");
+                return;
+            }
+
+            console.clear(); // Limpiar la consola antes de dibujar
+
+            // Parte superior del rombo
+            for (let i = 0; i < lineas; i++) {
+                // Espacios en blanco
+                let espacios = " ".repeat(lineas - i );
+                // Asteriscos, calculamos 2*i + 1 para crear la forma de rombo
+                let asteriscos = "*".repeat(2 * i + 1);
+                console.log(espacios + asteriscos);
+            }
+
+            // Parte inferior del rombo
+            for (let i = lineas - 2; i >= 0; i--) {
+                // Espacios en blanco
+                let espacios = " ".repeat(lineas - i - 1);
+                // Asteriscos, usando el mismo cálculo
+                let asteriscos = "*".repeat(2 * i + 1);
+                console.log(espacios + asteriscos);
+            }
+        }
+    </script>
+</body>
+</html>
