@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Antonio Miguel Alba Garcia - 07/11/2024 -->
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 2</title>
+</head>
+<body>
+  <p>Los elementos del  array son: <span id="array"></span></p>
+  <button type="button" id="insertarFinal">Insertar final</button>
+  <button type="button" id="insertarPrincipio">Insertar Principio</button>
+  <button type="button" id="borrarPrincio">Borrar Principio</button>
+  <button type="button" id="borrarFinal">Borrar Final</button>
+  <script>
+    var arr = [];
+    var salida = document.getElementById("array");
+    function random() {
+      return Math.floor(Math.random()*100);
+    }
+    // Agregamos un listener al boton para que ejecute la funcion al ser clicado
+    // Agrega a la primera posicion
+    document.getElementById("insertarFinal").addEventListener("click", function(){
+      arr.push(random());
+      salida.innerHTML = "";
+      for (let i = 0; i < arr.length; i++) {
+        salida.innerHTML += arr[i] + " ";
+      }
+    });
+    // Agregamos un listener al boton para que ejecute la funcion al ser clicado
+    // Agrega a la primera posicion
+    document.getElementById("insertarPrincipio").addEventListener("click", function(){
+      arr.unshift(random());
+      salida.innerHTML = "";
+      for (let i = 0; i < arr.length; i++) {
+        salida.innerHTML += arr[i] + " ";
+      }
+    });
+    // Agregamos un listener al boton para que ejecute la funcion al ser clicado
+    // Borra la primera posicion
+    document.getElementById("borrarPrincio").addEventListener("click", function(){
+      arr.shift();
+      salida.innerHTML = "";
+      for (let i = 0; i < arr.length; i++) {
+        salida.innerHTML += arr[i] + " ";
+      }
+    });
+    // Agregamos un listener al boton para que ejecute la funcion al ser clicado
+    // Borra la ultima posicion
+    document.getElementById("borrarFinal").addEventListener("click", function(){
+      arr.pop();
+      salida.innerHTML = "";
+      for (let i = 0; i < arr.length; i++) {
+        salida.innerHTML += arr[i] + " ";
+      }
+    });
+  </script>
+</body>
+</html>

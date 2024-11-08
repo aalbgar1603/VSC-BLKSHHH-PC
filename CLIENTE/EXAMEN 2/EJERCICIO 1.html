@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Antonio Miguel Alba Garcia - 07/11/2024 -->
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 1</title>
+</head>
+<body>
+  <form>
+    <label for="numero">Introduzca un numero</label>
+    <input type="number" name="numero" id="num">
+    <button type="button" id="but">Comprobar</button>
+  </form>
+  <!-- Aqui mostramos la respuesta -->
+  <h4 id="result"></h4>
+  <script>
+    // Agregamos un listener al boton para que ejecute la funcion al ser clicado
+    document.getElementById("but").addEventListener("click", function(){
+      numero = parseInt(document.getElementById("num").value)
+      // Comprobamos que no entren valores invalidos
+      if (isNaN(numero) || numero < 0) {
+        return;
+      };
+      // Creamos 2 variables auxiliares
+      invertido = 0;
+      original = numero;
+      // Vamos excluyendo e incluyendo
+      while (numero >  0) {
+        invertido = invertido * 10 + (numero % 10);
+        numero = Math.floor(numero/10);
+      }
+      // Comparamos
+      if(original === invertido) {
+        document.getElementById("result").innerHTML = `El numero ${original} es capicua.`
+      } else {
+        document.getElementById("result").innerHTML = `El numero ${original} NO es capicua.`
+      }
+    });
+  </script>
+</body>
+</html>

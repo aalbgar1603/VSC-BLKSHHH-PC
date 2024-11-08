@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Antonio Miguel Alba Garcia - 07/11/2024 -->
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 6</title>
+</head>
+<body>
+  <form>
+    <label for="filas">Filas</label>
+    <input type="number" name="filas" id="filas">
+    <button type="button" id="dibujar">Dibujar</button>
+  </form>
+  <script>
+    // Funcion para dibujar
+    document.getElementById("dibujar").addEventListener("click", function() {
+      // Limpiamos la consola
+      console.clear()
+      // Pasamos convertimos las filas a tipo entero
+      var filas = parseInt(document.getElementById("filas").value)
+      // Verificamos los valores y si no devuelve un error
+      if (isNaN(filas) || filas <= 0)  {
+        console.warn("Ingrese un numero mayor que cero");
+        return;
+      }
+      var rombo = "";
+      // Creamos la parte superior
+      for (let i = 0; i < filas; i++) {
+        var linea = "";
+        for (let j = 0; j < filas - i - 1; j++) {
+          linea += " ";
+        }
+        if (i === 0) {
+          linea += "*";
+        } else {
+          linea += "*";
+          for (let j = 0; j < 2 * i - 1; j++) {
+            linea += " ";
+          }
+          linea +=  "*";
+        }
+        rombo += linea + "\n";
+      }
+      // Creamos la parte inferior
+      for (let i = filas - 2; i >= 0 ; i--) {
+        linea = "";
+        for (let j = 0; j < filas - i - 1; j++) {
+          linea += " ";
+        }
+        if (i === 0) {
+          linea += "*";
+        } else {
+          linea += "*";
+          for (let j = 0; j < 2 * i - 1; j++) {
+            linea += " ";
+          }
+          linea += "*";
+        }
+        rombo += linea + "\n";
+      }
+      // La mostramos por pantalla
+      console.log(rombo);
+    });
+  </script>
+</body>
+</html>

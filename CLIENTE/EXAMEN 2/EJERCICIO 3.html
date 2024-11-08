@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- Antonio Miguel Alba Garcia - 07/11/2024 -->
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3</title>
+</head>
+<body>
+  <script>
+    // Recoge la frase por un prompt
+    frase = prompt("Introduzca una frase:");
+    // Cogemos el numero de palabras pasando a string pero excluyendo los espacios a los extremos, si no tambien lo cuenta como palabra pero vacias
+    numPal = frase.trim().split(" ").length;
+    // Invertimos el array
+    inverso = frase.trim().split(" ").reverse().join(" ");
+    // Cogemos la ultima palabra
+    primera = frase.trim().split(" ").shift();
+    // Cogemos la primera palabra
+    ultima = frase.trim().split(" ").pop();
+    // Mostramos el resultado
+    alert(`Frase original: ${frase}\nNumero de palabras: ${numPal}\nPrimera palabra: ${primera}\nUltima palabra: ${ultima}\nFrase invertida: ${inverso}`);
+  </script>
+</body>
+</html>

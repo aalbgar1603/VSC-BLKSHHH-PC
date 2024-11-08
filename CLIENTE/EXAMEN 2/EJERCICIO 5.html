@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Antonio Miguel Alba Garcia - 07/11/2024 -->
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 5</title>
+</head>
+<body>
+  <form>
+    <label for="fecha">Fecha:</label>
+    <input type="date" name="fecha" id="fecha" value="2024-01-01">
+    <button type="button" id="enviar">Enviar</button>
+  </form>
+  <script>
+    // Array con los dias de la semana
+    const diasSemana = ['Domingo', 'Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
+    // Array con los meses
+    const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    // Funcion
+    document.getElementById("enviar").addEventListener("click", function() {
+      // Limpiamos consola
+      console.clear()
+      // Cogemos el valor del tipo date
+      const inputFecha = document.getElementById("fecha").value;
+      // Creamos un date a partir de ese string
+      const fecha = new Date(inputFecha);
+      // Creamos un date vacio para coger la hora actual
+      const ahora = new Date();
+      // Obtenemos los valores que necesitamos
+      var diaSemana = diasSemana[fecha.getDay()];
+      var diaMes = fecha.getDate();
+      var mes = meses[fecha.getMonth()];
+      var anio = fecha.getFullYear();
+      // Cogemos la hora y minutos actual
+      var hora = ahora.getHours()%12||12;
+      var minuto = ahora.getMinutes().toString().padStart(2, "0");
+      var periodo = ahora.getHours() >= 12 ? " de la tarde" : " de la mañana";
+      // Mostramos el resultado
+      console.log(`Barbate, ${diaSemana} ${diaMes} de ${mes} de ${anio}, son las ${hora}:${minuto}${periodo}.`)
+    });
+
+  </script>
+</body>
+</html>

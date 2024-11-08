@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Antonio Miguel Alba Garcia - 07/11/2024 -->
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 4</title>
+</head>
+<body>
+  <p id="libres"></p>
+  <p id="ocupados"></p>
+  <button type="button" id="rotar">Rotar</button>
+  <script>
+    // Esta parte se crea al cargar la pagina y lo muestra para tener algo con lo que empezar
+    var trab_libres = ['Juaky', 'Luisa', 'Juan', 'Ana'];
+    var trab_ocupados = ['Judith', 'Jose', 'Alba', 'Felipe'];
+    // Obtenemos el parrafo donde lo mostraremos
+    var pLibres = document.getElementById("libres");
+    var pOcupados = document.getElementById("ocupados");
+    // Lo mostramos
+    for (let i = 0; i < trab_libres.length; i++) {
+      pLibres.innerHTML += trab_libres[i] + "&nbsp&nbsp&nbsp";
+      pOcupados.innerHTML += trab_ocupados[i] + "&nbsp&nbsp&nbsp";
+    }
+    // Funcion para rotar los trabajadores
+    document.getElementById("rotar").addEventListener("click", function(){
+      // Variable auxiliar para  almacenar los trabajadores que quitaremos y que moveremos al otro array
+      aux1 = trab_libres.shift();
+      aux2 = trab_ocupados.shift();
+      // Y metemos los valores de los auxiliares pero en arrays diferentes a la de origen
+      trab_libres.push(aux2);
+      trab_ocupados.push(aux1);
+      // Limpiamos el parrafo para mostrar el nuevo resultado
+      pLibres.innerHTML = "";
+      pOcupados.innerHTML = "";
+      // Mostramos el resultado
+      for (let i = 0; i < trab_libres.length; i++) {
+        pLibres.innerHTML += trab_libres[i] + "&nbsp&nbsp&nbsp";
+        pOcupados.innerHTML += trab_ocupados[i] + "&nbsp&nbsp&nbsp";
+      }
+    });
+
+  </script>
+</body>
+</html>
