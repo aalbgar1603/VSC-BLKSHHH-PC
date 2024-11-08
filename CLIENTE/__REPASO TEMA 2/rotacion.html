@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotar Equipos</title>
+</head>
+<body>
+    <h2>Rotar Integrantes entre Equipos</h2>
+
+    <script>
+        // Definimos los arrays iniciales
+        let ocupados = ["Pedro", "Luisa", "Juan", "Ana", "Carlos"];
+        let libres = ["Marina", "Jose", "Alba", "Felipe", "Marta"];
+
+        // Función para rotar el primer elemento entre ambos arrays
+        function rotar(lst1, lst2) {
+            const primerElementoLst1 = lst1.shift(); // Quitamos el primer elemento de lst1
+            const primerElementoLst2 = lst2.shift(); // Quitamos el primer elemento de lst2
+
+            lst1.push(primerElementoLst2); // Añadimos el primer elemento de lst2 al final de lst1
+            lst2.push(primerElementoLst1); // Añadimos el primer elemento de lst1 al final de lst2
+        }
+
+        // Mostrar los arrays antes de rotar
+        console.log("Antes de rotar:");
+        console.log("Ocupados:", ocupados);
+        console.log("Libres:", libres);
+
+        // Llamamos a la función rotar
+        rotar(ocupados, libres);
+
+        // Mostrar los arrays después de rotar
+        console.log("Después de rotar:");
+        console.log("Ocupados:", ocupados);
+        console.log("Libres:", libres);
+        
+        rotar(ocupados, libres);
+
+        // Mostrar los arrays después de rotar
+        console.log("Después de rotar:");
+        console.log("Ocupados:", ocupados);
+        console.log("Libres:", libres);
+
+        rotar(ocupados, libres);
+
+        // Mostrar los arrays después de rotar
+        console.log("Después de rotar:");
+        console.log("Ocupados:", ocupados);
+        console.log("Libres:", libres);
+
+        rotar(ocupados, libres);
+
+        // Mostrar los arrays después de rotar
+        console.log("Después de rotar:");
+        console.log("Ocupados:", ocupados);
+        console.log("Libres:", libres);
+
+        rotar(ocupados, libres);
+
+        // Mostrar los arrays después de rotar
+        console.log("Después de rotar:");
+        console.log("Ocupados:", ocupados);
+        console.log("Libres:", libres);
+    </script>
+</body>
+</html>
