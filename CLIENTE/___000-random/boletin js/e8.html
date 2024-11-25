@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <script>
+    const productos = [
+      {nombre: "Producto 1", precio: 10.99},
+      {nombre: "Producto 2", precio: 5.5},
+      {nombre: "Producto 3", precio: 12},
+      {nombre: "Producto 4", precio: 7.75},
+      {nombre: "Producto 5", precio: 3.99}
+    ];
+    function calcularPrecioTotal(a) {
+      suma = 0;
+      a.forEach(element => {
+        suma += element.precio;
+      });
+      return suma;
+    }
+    console.log(calcularPrecioTotal(productos));
+    ;
+  </script>
+  </body>
+</html>

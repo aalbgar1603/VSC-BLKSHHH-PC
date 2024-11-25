@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <script>
+      array = [0,3,2,5,4];
+      function ordenarDesdePosicion(array, posicion) {
+        res = array.slice(posicion).sort((a,b) => a > b);
+        res.unshift(...array.slice(0, posicion));
+        return res;
+      }
+      console.log(resultado = ordenarDesdePosicion(array, 2));
+      
+    </script>
+  </body>
+</html>
